@@ -2055,7 +2055,7 @@ class FakeSocket(object):
 
     @command((Key(ZSet), Int), (bytes, bytes))
     def zscan(self, key, cursor, *args):
-        return self._scan(key.value.items, cursor, *args)
+        return self._scan(list(key.value), cursor, *args)
 
     @command((Key(ZSet), bytes))
     def zscore(self, key, member):
